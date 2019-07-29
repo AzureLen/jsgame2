@@ -82,3 +82,21 @@ body{
 	text-align: center;
 	font-weight: bolder;
 }*/
+
+#snake{
+	background-color: black;
+	width:500px;
+	height:500px;
+}
+
+/*#ground{
+	width:1px;
+	height:1px;
+	position:absolute;
+}*/
+
+/*#fruit{
+	border-radius: 50%;
+	width:1px;
+	height:1px;
+}*/
