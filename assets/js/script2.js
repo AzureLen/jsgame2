@@ -26,26 +26,26 @@
 // 	this.changeDirection = function(direction) {
 // 		switch(direction) {
 // 			case "Up" :
-// 				this.xSpeed = 0;
+// 				this.horizontalSpeed = 0;
 // 				if(this.snake.length > 0 && this.snake[index-1].y == this.y-box) return;
-// 				this.ySpeed = -size*1;
+// 				this.verticalSpeed = -size*1;
 // 				break;
 // 			case "Down" :
 
-// 				this.xSpeed = 0;
+// 				this.horizontalSpeed = 0;
 // 				if(this.head.length > 0 && this.head[index-1].y == this.y+size) return;
-// 				this.ySpeed = size*1;
+// 				this.verticalSpeed = size*1;
 
 // 				break;
 // 			case "Left" :
 // 				if(this.head.length > 0 && this.head[index-1].x == this.x-size) return;
-// 				this.xSpeed = -size*1;
-// 				this.ySpeed = 0;
+// 				this.horizontalSpeed = -size*1;
+// 				this.verticalSpeed = 0;
 // 				break;
 // 			case "Right" :
 // 				if(this.head.length > 0 && this.head[index-1].x == this.x+size) return;
-// 				this.xSpeed = size*1;
-// 				this.ySpeed = 0;
+// 				this.horizontalSpeed = size*1;
+// 				this.verticalSpeed = 0;
 // 				break;
 // 		}
 // 	}
@@ -120,8 +120,8 @@
 // 			this.head[i] = this.head[i+1];
 // 		}
 // 		this.head[index-1] = {x:this.x, y:this.y};
-// 		this.x += this.xSpeed;
-// 		this.y += this.ySpeed;
+// 		this.x += this.horizontalSpeed;
+// 		this.y += this.verticalSpeed;
 // 		if (this.x > cvs.width) {
 // 			this.x = 0;
 // 		}
@@ -139,26 +139,26 @@
 // 	this.changeDirection = function(direction) {
 // 		switch(direction) {
 // 			case "Up" :
-// 				this.xSpeed = 0;
+// 				this.horizontalSpeed = 0;
 // 				if(this.head.length > 0 && this.head[index-1].y == this.y-size) return;
-// 				this.ySpeed = -size*1;
+// 				this.verticalSpeed = -size*1;
 // 				break;
 // 			case "Down" :
 
-// 				this.xSpeed = 0;
+// 				this.horizontalSpeed = 0;
 // 				if(this.head.length > 0 && this.head[index-1].y == this.y+size) return;
-// 				this.ySpeed = size*1;
+// 				this.verticalSpeed = size*1;
 
 // 				break;
 // 			case "Left" :
 // 				if(this.head.length > 0 && this.head[index-1].x == this.x-size) return;
-// 				this.xSpeed = -size*1;
-// 				this.ySpeed = 0;
+// 				this.horizontalSpeed = -size*1;
+// 				this.verticalSpeed = 0;
 // 				break;
 // 			case "Right" :
 // 				if(this.head.length > 0 && this.head[index-1].x == this.x+size) return;
-// 				this.xSpeed = size*1;
-// 				this.ySpeed = 0;
+// 				this.horizontalSpeed = size*1;
+// 				this.verticalSpeed = 0;
 // 				break;
 // 		}
 // 	}
@@ -188,7 +188,7 @@ let ctx = cvs.getContext("2d");
 let scale = 20;
 let size = 10;
 let center = 50;
-let speed = 60;
+let speed = 80;
 let rows = cvs.height/scale;
 let columns = cvs.width/scale;
 // let snake;
@@ -198,13 +198,13 @@ let index = 0;
 function Snake() {
 	this.x = 100;
 	this.y = 100;
-	this.xSpeed = size*1;
-	this.ySpeed = 0;
+	this.horizontalSpeed = size*1;
+	this.verticalSpeed = 0;
 	this.total = 0;
 	this.head = [];
 
 	this.draw = function() {
-		ctx.fillStyle = "white";
+		ctx.fillStyle = "yellow";
 		if (this.total > 0) {
 			for(let i=0; i<this.head.length; i++) {
 				ctx.fillRect(this.head[i].x,this.head[i].y, size,size);	
@@ -218,8 +218,8 @@ function Snake() {
 			this.head[i] = this.head[i+1];
 		}
 		this.head[index-1] = {x:this.x, y:this.y};
-		this.x += this.xSpeed;
-		this.y += this.ySpeed;
+		this.x += this.horizontalSpeed;
+		this.y += this.verticalSpeed;
 		if (this.x > cvs.width) {
 			this.x = 0;
 		}
@@ -237,26 +237,26 @@ function Snake() {
 	this.move = function(direction) {
 		switch(direction) {
 			case "Up" :
-				this.xSpeed = 0;
+				this.horizontalSpeed = 0;
 				if(this.head.length > 0 && this.head[index-1].y == this.y-size) return;
-				this.ySpeed = -size*1;
+				this.verticalSpeed = -size*1;
 				break;
 			case "Down" :
 
-				this.xSpeed = 0;
+				this.horizontalSpeed = 0;
 				if(this.head.length > 0 && this.head[index-1].y == this.y+size) return;
-				this.ySpeed = size*1;
+				this.verticalSpeed = size*1;
 
 				break;
 			case "Left" :
 				if(this.head.length > 0 && this.head[index-1].x == this.x-size) return;
-				this.xSpeed = -size*1;
-				this.ySpeed = 0;
+				this.horizontalSpeed = -size*1;
+				this.verticalSpeed = 0;
 				break;
 			case "Right" :
 				if(this.head.length > 0 && this.head[index-1].x == this.x+size) return;
-				this.xSpeed = size*1;
-				this.ySpeed = 0;
+				this.horizontalSpeed = size*1;
+				this.verticalSpeed = 0;
 				break;
 		}
 	}
@@ -264,7 +264,8 @@ function Snake() {
 	this.eat = function(food) {
 		if(this.x === food.x && this.y === food.y) {
 			index++;
-			snake.total++;	
+			snake.total++;
+			speed+=5;
 			return true;
 		} else return false;
 	}
@@ -287,8 +288,8 @@ function Food() {
 	this.y;
 
 	this.foodLocation = function() {
-		this.x = (Math.floor(Math.random() * rows-1)+1)*scale;
-		this.y = (Math.floor(Math.random() * columns-1)+1)*scale;
+		this.x = (Math.floor(Math.random() * 150)+20),
+		this.y = (Math.floor(Math.random() * 150)+20)
 	}
 
 	this.drawFood = function() {
@@ -324,10 +325,10 @@ function Food() {
 		}
 
 		// if(snake.head.length > 0) {
-		// 		if(snake.xSpeed == 0 && snake.head[0].y == snake.y+size) {
+		// 		if(snake.horizontalSpeed == 0 && snake.head[0].y == snake.y+size) {
 		// 			console.log("eureka!");
 		// 			console.log(snake.y)
-		// 			console.log(snake.ySpeed == -size);
+		// 			console.log(snake.verticalSpeed == -size);
 		// 		}
 		// 	}
 

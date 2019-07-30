@@ -4,7 +4,7 @@ body{
 	box-sizing: border-box;
 }
 
-#boardDiv{
+/*#boardDiv{
 	width:380px;
 	height:380px;
 	border: 1px solid red;
@@ -30,9 +30,9 @@ body{
 	text-align: center;
 	line-height: 40px;
 	/*display:inline-block;*/
-	float:left;
+/*	float:left;
 	border: 1px solid white;
-}
+}*/
 
 /*
 .spaces {
@@ -84,9 +84,10 @@ body{
 }*/
 
 #snake{
-	background-color: black;
-	width:500px;
-	height:500px;
+	background-color: green;
+	width:400px;
+	height:400px;
+	border: 3px solid red;
 }
 
 /*#ground{
